@@ -8,7 +8,8 @@ export default new Vuex.Store({
     isConnected: false,
     socketMessage: '',
     roomInfo: null,
-    game: null
+    game: null,
+    tasks: null
   },
   mutations: {
     setConnection(state, status) {
@@ -24,6 +25,10 @@ export default new Vuex.Store({
     },
     setUser(state, user) {
       state.user = user
+    },
+    
+    setTasks(state, tasks) {
+      state.tasks = tasks
     }
   },
   actions: {
@@ -36,12 +41,21 @@ export default new Vuex.Store({
       console.log('disconnect')
       commit('setConnection', false)
     },
+
     socket_message(_, payload){
       console.log('message', payload)
     },
+
     socket_roomInfo({commit}, payload){
-      console.log('message', payload)
       commit('setRoomInfo', payload)
+    },
+
+    socket_tasksUpdate({commit}, payload){
+      commit('setTasks', payload)
+    },
+
+    socket_gameUpdate({dispatch}, payload) {
+      dispatch('addGame', payload)
     },
 
     addGame({commit}, payload) {

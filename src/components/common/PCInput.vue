@@ -2,7 +2,7 @@
   <div class="border rounded p-2 focus:border-red-200">
     <input
       :value="value"
-      class="focus:outline-none w-full"
+      class="focus:outline-none w-full bg-transparent"
       :placeholder="placeholder"
       @input="handleInput"
     />

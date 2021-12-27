@@ -1,19 +1,22 @@
 <template>
   <div>
-    <div class="text-gray-500 capitalize">Voting type</div>
-    <div class="capitalize text-gray-700 font-bold text-lg mb-3">
-      {{ type }}
-    </div>
-    <div class="flex ">
-      <div
-        @click="handleCardClick(item)"
-        v-for="(item, idx) in votingType"
-        :key="idx"
-        class="flex justify-center items-center shadow-lg w-20 h-20 border rounded cursor-pointer mr-3 hover:bg-purple-100 text-gray-700"
-      >
-        {{item}}
+    <div v-if="ready">
+      <div class="text-gray-500 capitalize">Voting type</div>
+      <div class="capitalize text-gray-700 font-bold text-lg mb-3">
+        {{ type }}
+      </div>
+      <div class="flex">
+        <div
+          @click="handleCardClick(item)"
+          v-for="(item, idx) in votingType"
+          :key="idx"
+          class="flex justify-center items-center shadow-lg w-20 h-20 border rounded cursor-pointer mr-3 hover:bg-purple-100 text-gray-700"
+        >
+          {{ item }}
+        </div>
       </div>
     </div>
+    <div v-else class="text-gray-500"> Voting cards will show once a new task is added by facilitator</div>
   </div>
 </template>
 
@@ -23,6 +26,10 @@ export default {
   props: {
     type: {
       type: String,
+    },
+    ready: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -38,10 +45,10 @@ export default {
     },
   },
   methods: {
-      handleCardClick(item) {
-          console.log('item', item)
-          this.$emit('voteSelected', item)
-      }
-  }
+    handleCardClick(item) {
+      console.log("item", item);
+      this.$emit("voteSelected", item);
+    },
+  },
 };
 </script>
