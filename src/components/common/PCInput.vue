@@ -5,6 +5,7 @@
       class="focus:outline-none w-full bg-transparent"
       :placeholder="placeholder"
       @input="handleInput"
+      :disabled="disabled"
     />
   </div>
 </template>
@@ -20,6 +21,10 @@ export default {
       type: String,
       default: "Your input",
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
   },
 
   methods: {

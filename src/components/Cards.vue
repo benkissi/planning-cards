@@ -10,7 +10,7 @@
           @click="handleCardClick(item)"
           v-for="(item, idx) in votingType"
           :key="idx"
-          class="flex justify-center items-center shadow-lg w-20 h-20 border rounded cursor-pointer mr-3 hover:bg-purple-100 text-gray-700"
+          :class="['flex justify-center items-center shadow-lg w-20 h-20 border rounded cursor-pointer mr-3 hover:bg-purple-100 transition-all duration-300 ease-in-out', selection === item ? 'bg-purple-400 text-white font-semibold text-lg -mt-8' : 'text-gray-700']"
         >
           {{ item }}
         </div>
@@ -31,6 +31,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    selection: {
+      type:Number,
+
+    }
   },
   data() {
     return {
@@ -52,3 +56,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.move-up {
+  margin-top: -10px !important;
+}
+</style>
