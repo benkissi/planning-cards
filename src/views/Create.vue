@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center items-center h-screen">
-    <div class="w-1/2">
-      <div class="mb-5">Create new game</div>
+  <div class="flex justify-center items-center h-screen px-5">
+    <div class="w-full md:w-1/2">
+      <div class="mb-5 font-bold">Create new game</div>
       <pc-input placeholder="Game name" class="mb-3" v-model="name" />
       <pc-select
         :options="votingOptions"

@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-between items-center p-2 px-10">
+  <nav class="flex justify-between items-center p-2 px-5 md:px-10">
     <div class="flex">
       <pc-avater class="mr-3" :name="currentUser.username" />
       <div class="text-left">

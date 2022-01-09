@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-purple-50">
+  <div class="min-h-screen md:h-screen bg-purple-50">
     <router-view />
   </div>
 </template>
@@ -44,16 +44,7 @@ export default {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+* {
+  /* box-sizing: border-box !important; */
 }
 </style>

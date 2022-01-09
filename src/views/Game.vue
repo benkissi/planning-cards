@@ -1,13 +1,14 @@
 <template>
-  <div class="flex flex-col h-full">
-    <Nav />
-    <div class="flex justify-between items-center h-full px-10">
+  <div class="flex flex-col min-h-screen md:min-h-full md:h-full">
+    <Nav class="d-none hidden md:flex"/>
+    <MobileNav class="md:hidden" />
+    <div class="flex flex-col md:flex-row justify-between items-center h-full px-5 md:px-10">
       <Players
         :players="roomInfo.users"
         :reveal="reveal"
         :currentUser="currentUser"
       />
-      <div class="flex items-center h-full w-1/2">
+      <div class="flex items-center h-full w-full md:w-1/2 mb-5 md:mb-0">
         <div v-if="players.left">
           <div
             v-for="(player, idx) in players.left"
@@ -56,7 +57,7 @@
               <div class="h-full w-full">{{ player.username }}</div>
             </div>
           </div>
-          <div class="bg-purple-300 h-1/4 w-full rounded-full my-4 px-10">
+          <div class="bg-purple-300 h-1/4 w-full rounded-full my-4 px-10 py-5">
             <div
               v-if="user.type === 'facilitator'"
               class="flex items-center justify-center w-full h-full"
@@ -155,6 +156,7 @@ import Nav from "../components/Nav.vue";
 import Cards from "../components/Cards.vue";
 import Players from "../components/Players.vue";
 import Tasks from "../components/Tasks.vue";
+import MobileNav from '../components/MobileNav.vue';
 
 export default {
   name: "Game",
@@ -163,6 +165,7 @@ export default {
     Cards,
     Players,
     Tasks,
+    MobileNav,
   },
   data() {
     return {
