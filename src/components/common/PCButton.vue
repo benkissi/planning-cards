@@ -1,10 +1,11 @@
 <template>
-  <div
-    class="rounded p-2 bg-purple-600 text-white text-center capitalize text-lg cursor-pointer"
+  <button
+    :disabled="disabled"
+    :class="['w-full rounded p-2 text-white text-center capitalize text-lg ', disabled? 'bg-purple-300 cursor-not-allowed' :'bg-purple-600 cursor-pointer']"
     @click="$emit('btnClick')"
   >
     {{text}}
-  </div>
+  </button>
 </template>
 
 <script>
@@ -13,6 +14,11 @@ export default {
         text: {
             type: String,
             default: 'Button text'
+        },
+        disabled: {
+          type: Boolean,
+          required: false,
+          default: false
         }
     }
 }

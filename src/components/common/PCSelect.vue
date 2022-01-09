@@ -39,10 +39,15 @@ export default {
       default: () => [],
       required: true,
     },
+    existingValue: {
+      type: Object,
+      default: null,
+      required: false
+    }
   },
   data() {
     return {
-      selected: null,
+      selected: this.existingValue,
       showList: false
     };
   },

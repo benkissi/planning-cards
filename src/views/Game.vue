@@ -56,7 +56,7 @@
               <div class="h-full w-full">{{ player.username }}</div>
             </div>
           </div>
-          <div class="bg-purple-300 h-1/4 w-full rounded-full my-4">
+          <div class="bg-purple-300 h-1/4 w-full rounded-full my-4 px-10">
             <div
               v-if="user.type === 'facilitator'"
               class="flex items-center justify-center w-full h-full"
@@ -149,6 +149,7 @@
 </template>
 
 <script>
+import chunk from "lodash/chunk";
 import { mapState } from "vuex";
 import Nav from "../components/Nav.vue";
 import Cards from "../components/Cards.vue";
@@ -173,7 +174,7 @@ export default {
       if (!oldState && newState) {
         this.taskTitle = "";
       }
-    },
+    }
   },
   computed: {
     ...mapState({
@@ -195,6 +196,17 @@ export default {
           top: players[1] ? [players[1]] : [],
           left: players[2] ? [players[2]] : [],
           right: players[3] ? [players[3]] : [],
+        };
+      }
+      if (players.length > 4) {
+        const size = Math.ceil(players.length / 4);
+        console.log(size);
+        const chunks = chunk(players, size);
+        return {
+          bottom: chunks?.[0] || [],
+          top: chunks?.[1] || [],
+          left: chunks?.[2] || [],
+          right: chunks?.[3] || [],
         };
       }
       return {

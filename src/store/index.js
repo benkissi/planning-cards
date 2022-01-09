@@ -9,7 +9,9 @@ export default new Vuex.Store({
     socketMessage: '',
     roomInfo: null,
     game: null,
-    tasks: null
+    tasks: null,
+    systemMessage: null,
+    user: null
   },
   mutations: {
     setConnection(state, status) {
@@ -29,6 +31,10 @@ export default new Vuex.Store({
     
     setTasks(state, tasks) {
       state.tasks = tasks
+    },
+
+    setSystemMessage(state, message) {
+      state.systemMessage = message
     }
   },
   actions: {
@@ -42,11 +48,18 @@ export default new Vuex.Store({
       commit('setConnection', false)
     },
 
-    socket_message(_, payload){
+    socket_system({commit}, payload){
       console.log('message', payload)
+      commit('setSystemMessage', payload)
     },
 
-    socket_roomInfo({commit}, payload){
+    socket_roomInfo({commit, state}, payload){
+      const currentUser = payload.users.find(user => user?.id === state?.user?.id)
+      console.log('urrent user', currentUser)
+      if(currentUser) {
+        commit('setUser', currentUser)
+      }
+      
       commit('setRoomInfo', payload)
     },
 
