@@ -29,14 +29,14 @@
         <div class="mt-3">
           <div
             class="flex hover:bg-purple-50 py-3 px-5 mb-4"
-            @click="handleCopyLink"
+            @click="$router.push('/')"
           >
             <HomeIcon class="mr-4 text-purple-400" />
             <div>Home</div>
           </div>
           <div
             class="flex hover:bg-purple-50 py-3 px-5 mb-4"
-            @click="handleCopyLink"
+            @click="$router.push('/create')"
           >
             <AddIcon class="text-purple-400 mr-4" />
             <div>Create new game</div>
@@ -57,14 +57,18 @@
           </div>
         </div>
 
-        <div class="mt-auto mb-5 px-5">
+        <div class="flex justify-between items-center mt-auto mb-5 px-5">
           <div class="text-left">
             <div class="text-gray-500 capitalize">Game name</div>
             <div class="text-gray-700 font-bold text-lg capitalize">
               {{ game.name }}
             </div>
           </div>
-        </div>
+              <div class="flex flex-col justify-center items-center w-20 h-20 bg-purple-400 rounded-lg">
+                  <div class="font-bold text-sm text-white">{{playerCount}}</div>
+                  <div class="font-bold text-sm text-white">Players {{playerCount > 1 ? 's' : ''}}</div>
+                  </div>
+              </div>
       </div>
     </div>
     <pc-modal v-if="showSettings" @close="showSettings = false">
@@ -107,6 +111,7 @@ export default {
     ...mapState({
       currentUser: (state) => state.user,
       game: (state) => state.game,
+      playerCount: state => state.roomInfo?.users?.length
     }),
   },
   methods: {
