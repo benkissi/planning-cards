@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center h-screen">
+  <div class="flex justify-center items-center h-screen bg-white">
     <div class="flex flex-col w-2/4">
       <div class="text-5xl font-extrabold mb-7">
         Planning cards for agile development teams

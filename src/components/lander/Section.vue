@@ -1,12 +1,11 @@
 <template>
-  <div class="flex">
-    <div class="flex flex-col">
-      <div class="text-4xl font-bold">{{ title }}</div>
-      <div class="text-lg">{{ subTitle }}</div>
+  <div class="flex justify-between items-center px-72">
+    <div :class="['flex flex-col', flip && 'order-last']">
+      <div class="text-4xl font-bold text-gray-800">{{ title }}</div>
+      <div class="text-lg text-gray-500">{{ subTitle }}</div>
     </div>
-    <div>
-      <div>{{ image }}</div>
-      <div><slot></slot></div>
+    <div class="mr-10">
+     <slot/>
     </div>
   </div>
 </template>
@@ -16,17 +15,17 @@ export default {
   name: "Section",
   props: {
     title: {
-      title: String,
+      type: String,
       required: true,
     },
     subTitle: {
-      title: String,
+      type: String,
       required: true,
     },
-    image: {
-      title: String,
-      required: true,
-    },
+    flip: {
+      type: String,
+      required: false
+    }
   },
 };
 </script>
