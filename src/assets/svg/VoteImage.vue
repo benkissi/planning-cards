@@ -2,8 +2,8 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     data-name="Layer 1"
-    width="600"
-    height="500"
+    width="300"
+    height="300"
     viewBox="0 0 724.72381 476.68454"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
@@ -128,9 +128,3 @@
     />
   </svg>
 </template>
-
-<script>
-export default {
-  name: "UpvoteArt",
-};
-</script>

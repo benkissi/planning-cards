@@ -1,8 +1,19 @@
 <template>
   <div class="text-center">
     <div class="flex flex-col">
-      <div class="text-4xl font-bold mb-3 text-gray-800">{{ title }}</div>
-      <div class="text-lg text-gray-500">{{ subTitle }}</div>
+      <div
+        :class="[
+          titleClass ? titleClass : 'text-gray-800',
+          'text-4xl font-bold mb-3',
+        ]"
+      >
+        {{ title }}
+      </div>
+      <div
+        :class="[subTitleClass ? subTitleClass : 'text-gray-500', 'text-lg ']"
+      >
+        {{ subTitle }}
+      </div>
     </div>
   </div>
 </template>
@@ -18,6 +29,14 @@ export default {
     subTitle: {
       type: String,
       required: true,
+    },
+    titleClass: {
+      type: String,
+      required: false,
+    },
+    subTitleClass: {
+      type: String,
+      required: false,
     },
   },
 };

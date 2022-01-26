@@ -23,7 +23,7 @@ export default {
       required: true,
     },
     flip: {
-      type: String,
+      type: Boolean,
       required: false
     }
   },

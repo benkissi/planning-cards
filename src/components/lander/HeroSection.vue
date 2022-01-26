@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center h-screen bg-white">
+  <div class="flex justify-center items-center wrapper bg-white">
     <div class="flex flex-col w-2/4">
       <div class="text-5xl font-extrabold mb-7">
         Planning cards for agile development teams
@@ -9,7 +9,7 @@
         <pc-button text="Start new game" @btnClick="$router.push('/create')" />
       </div>
     </div>
-    <div>
+    <div class="relative mt-auto">
       <HeroImage />
     </div>
   </div>
@@ -22,3 +22,9 @@ export default {
   components: { HeroImage },
 };
 </script>
+
+<style scoped>
+.wrapper {
+  height: 55vh;
+}
+</style>
