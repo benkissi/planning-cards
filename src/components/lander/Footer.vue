@@ -1,6 +1,6 @@
 <template>
   <div class="footer bg-gray-800 flex justify-center items-center text-lg text-white">
-      © {{year}} Getch, All Rights Reserved.
+      © {{year}} PokerEstimator, All Rights Reserved.
   </div>
 </template>
 <script>

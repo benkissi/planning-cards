@@ -1,15 +1,15 @@
 <template>
-  <div>
-    <div class="">
+  <div class="w-full">
+    <div class="w-full">
       <HeroSection />
     </div>
-    <div class="mt-10">
+    <div class="mt-10 hidden md:block">
       <Title
         title="Stop boring plannings"
         subTitle=" we give you the confidence that your teams is connected anss stays productive."
       />
     </div>
-    <div class="mt-28">
+    <div class="mt-10 md:mt-28">
       <Section
         title="Vote issues in real-time"
         subTitle="Your team will be more engaged with our clear and useful interface."
@@ -17,7 +17,7 @@
         <UpvoteArt />
       </Section>
     </div>
-    <div class="mt-28">
+    <div class="mt-10 md:mt-28">
       <Section
         :flip="true"
         title="Add your issues and vote for them"
@@ -26,7 +26,7 @@
         <AddArt />
       </Section>
     </div>
-    <div class="mt-28">
+    <div class="mt-10 md:mt-28">
       <Section
         title="Download vote information"
         subTitle="Easily download voting information to a CSV file"
@@ -36,8 +36,8 @@
     </div>
     <div class="mt-28 pt-16 bg-white">
       <Title title="High Stake Wins" subTitle="Get started in 3 simple steps" />
-      <div class="flex justify-between px-72 mt-12">
-        <div class="w-2/6">
+      <div class="flex flex-col md:flex-row justify-between md:px-72 mt-12">
+        <div class="md:w-2/6">
           <Step
             title="1. Start new game"
             description="Start a new game and add your issues."
@@ -45,7 +45,7 @@
             <GameArt />
           </Step>
         </div>
-        <div class="w-2/6">
+        <div class="md:w-2/6">
           <Step
             title="2. Invite your team"
             description="Copy and share your games invite link."
@@ -53,7 +53,7 @@
             <InviteArt />
           </Step>
         </div>
-        <div class="w-2/6">
+        <div class="md:w-2/6">
           <Step
             title="3. Start Voting"
             description="Start voting in real time."

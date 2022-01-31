@@ -1,7 +1,12 @@
 <template>
-  <div class="flex justify-center items-center h-screen px-5">
-    <div class="w-full md:w-1/2">
-      <div class="mb-5 font-bold">Create new game</div>
+  <div class="flex flex-col md:flex-row items-center h-auto md:h-screen">
+    <div
+      class="flex items-center justify-center bg-purple-300 w-full h-56 md:w-2/6 md:h-full overflow-hidden"
+    >
+      <CardsArt width="600" />
+    </div>
+    <div class="w-full md:w-1/2 px-5 md:px-0 md:pl-10 pt-10">
+      <div class="mb-5 font-bold text-3xl text-gray-800">Create new game</div>
       <pc-input placeholder="Game name" class="mb-3" v-model="name" />
       <pc-select
         :options="votingOptions"
@@ -16,8 +21,13 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import { mapActions } from "vuex";
+import CardsArt from "../assets/svg/CardsImage.vue";
 export default {
+  name: "Create Game",
+  components: {
+    CardsArt,
+  },
   data() {
     return {
       username: "",
@@ -37,8 +47,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      addGame: 'addGame',
-      addUser: 'addUser'
+      addGame: "addGame",
+      addUser: "addUser",
     }),
     handleStart() {
       this.$socket.emit(
@@ -64,11 +74,11 @@ export default {
               icon: true,
               rtl: false,
             });
-          }else {
-            console.log('user***', user)
-            this.addGame(game)
-            this.addUser(user)
-            this.$router.push('/game')
+          } else {
+            console.log("user***", user);
+            this.addGame(game);
+            this.addUser(user);
+            this.$router.push("/game");
           }
         }
       );

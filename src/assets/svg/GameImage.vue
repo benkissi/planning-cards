@@ -2,8 +2,8 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     data-name="Layer 1"
-    width="300"
-    height="300"
+    :width="width"
+    :height="height"
     viewBox="0 0 916.77499 612.05507"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
@@ -381,3 +381,19 @@
     />
   </svg>
 </template>
+
+<script>
+export default {
+  name: "Game Image",
+  props: {
+    width: {
+      required: false,
+      default: '300'
+    },
+    height: {
+      required: false,
+      default: '300'
+    }
+  }
+}
+</script>

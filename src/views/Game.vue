@@ -1,13 +1,17 @@
 <template>
-  <div class="flex flex-col min-h-screen md:min-h-full md:h-full">
-    <Nav class="d-none hidden md:flex"/>
+  <div class="flex flex-col min-h-screen md:h-screen">
+    <Nav class="d-none hidden md:flex" />
     <MobileNav class="md:hidden" />
-    <div class="flex flex-col md:flex-row justify-between items-center h-full px-5 md:px-10">
-      <Players
-        :players="roomInfo.users"
-        :reveal="reveal"
-        :currentUser="currentUser"
-      />
+    <div
+      class="flex flex-col md:flex-row justify-between items-center h-4/5 px-5 md:px-10"
+    >
+      <div class="w-full md:w-1/5 h-full py-10">
+        <Players
+          :players="roomInfo.users"
+          :reveal="reveal"
+          :currentUser="currentUser"
+        />
+      </div>
       <div class="flex items-center h-full w-full md:w-1/2 mb-5 md:mb-0">
         <div v-if="players.left">
           <div
@@ -135,7 +139,9 @@
           </div>
         </div>
       </div>
-      <Tasks :tasks="tasks ? tasks.tasks : []" />
+      <div class="w-full md:w-1/5 h-full py-10">
+        <Tasks :tasks="tasks ? tasks.tasks : []" />
+      </div>
     </div>
     <div class="flex justify-center">
       <Cards
@@ -156,7 +162,7 @@ import Nav from "../components/Nav.vue";
 import Cards from "../components/Cards.vue";
 import Players from "../components/Players.vue";
 import Tasks from "../components/Tasks.vue";
-import MobileNav from '../components/MobileNav.vue';
+import MobileNav from "../components/MobileNav.vue";
 
 export default {
   name: "Game",
@@ -177,7 +183,7 @@ export default {
       if (!oldState && newState) {
         this.taskTitle = "";
       }
-    }
+    },
   },
   computed: {
     ...mapState({
@@ -239,6 +245,7 @@ export default {
 
     currentTask() {
       const tasks = this.tasks?.tasks;
+      console.log('tasks----', tasks)
       if (!tasks) return null;
       return tasks.find((task) => !task.completed);
     },
