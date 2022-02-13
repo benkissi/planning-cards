@@ -3,9 +3,9 @@
     <Nav class="d-none hidden md:flex" />
     <MobileNav class="md:hidden" />
     <div
-      class="flex flex-col md:flex-row justify-between items-center h-4/5 px-5 md:px-10"
+      class="flex flex-col md:flex-row justify-between items-center h-4/6 px-5 md:px-10"
     >
-      <div class="w-full md:w-1/5 h-full py-10">
+      <div class="w-full md:w-1/5 playersWrapper md:h-full py-10">
         <Players
           :players="roomInfo.users"
           :reveal="reveal"
@@ -139,8 +139,8 @@
           </div>
         </div>
       </div>
-      <div class="w-full md:w-1/5 h-full py-10">
-        <Tasks :tasks="tasks ? tasks.tasks : []" />
+      <div class="w-full md:w-1/5 taskWrapper md:h-full py-10">
+        <Tasks :tasks="tasks ? tasks.tasks : []" :gameName="game.name" />
       </div>
     </div>
     <div class="flex justify-center">
@@ -228,7 +228,7 @@ export default {
 
     votesMade() {
       const players = this.roomInfo.users.filter(
-        (player) => player.vote !== null
+        (player) => !!player.vote
       );
 
       if (players.length > 0) {
@@ -304,3 +304,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .taskWrapper {
+    height: 700px;
+  }
+
+  .playersWrapper {
+    height: 700px;
+  }
+</style>

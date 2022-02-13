@@ -66,7 +66,7 @@
           </div>
               <div class="flex flex-col justify-center items-center w-20 h-20 bg-purple-400 rounded-lg">
                   <div class="font-bold text-sm text-white">{{playerCount}}</div>
-                  <div class="font-bold text-sm text-white">Players {{playerCount > 1 ? 's' : ''}}</div>
+                  <div class="font-bold text-sm text-white">Player{{playerCount > 1 ? 's' : ''}}</div>
                   </div>
               </div>
       </div>

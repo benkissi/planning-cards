@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded border p-5 h-4/5 flex flex-col w-full">
+  <div class="rounded border p-5 h-full flex flex-col w-full">
     <div class="text-gray-500 text-xl mb-4 font-bold">Tasks</div>
     <div class="h-full overflow-scroll overflow-x-hidden">
       <div
@@ -19,10 +19,9 @@
         Total:
         <span class="font-bold text-lg text-purple-700">{{ total }}</span>
       </div>
-      <pc-button
-        text="Download Scores"
-        class="w-9/12 mt-2"
-      />
+      <download-csv :data="taskData" name= "TaskScores.csv" class="flex cursor-pointer justify-center w-full p-2 rounded text-white text-center capitalize text-lg bg-purple-600">
+        Download Scores
+      </download-csv>
     </div>
   </div>
 </template>
@@ -35,6 +34,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    gameName: {
+      type: String,
+      default: ""
+    }
   },
   computed: {
     total() {
@@ -49,6 +52,14 @@ export default {
       }
       return [];
     },
+
+    taskData() {
+      return this.allTasks.map(item => {
+        delete item.gameId
+        item.game = this.gameName
+        return item
+      })
+    }
   },
 };
 </script>

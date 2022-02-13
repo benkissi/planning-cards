@@ -6,10 +6,13 @@ import SocketIO from "socket.io-client";
 import VueSocketIO from "vue-socket.io";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
+import JsonCSV from 'vue-json-csv'
 
 import "./components/registerGlobalComponents";
 
 import "./assets/styles/index.css";
+
+Vue.component('downloadCsv', JsonCSV)
 
 Vue.use(
   new VueSocketIO({

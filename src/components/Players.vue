@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded border p-5 h-4/5">
+  <div class="flex flex-col rounded border p-5 h-full">
     <div class="text-gray-500 text-xl mb-4 font-bold">Players</div>
     <div class="flex-1 overflow-scroll overflow-x-hidden">
       <div
@@ -15,9 +15,13 @@
           </div>
 
           <div class="flex mt-2">
-            <div class="italic" v-if="!reveal && player.vote">
+            <div class="italic" v-if="!player.vote && !reveal">
               Not voted yet
             </div>
+            <div class="italic" v-if="!reveal && player.vote">
+              Voted
+            </div>
+
             <div v-if="reveal">
               <span class="italic">User vote - </span>
               <span class="font-bold">{{ player.vote }}</span>
