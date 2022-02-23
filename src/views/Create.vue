@@ -35,11 +35,11 @@ export default {
       votingType: "",
       votingOptions: [
         {
-          text: "Fibonacci ( 0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ? )",
+          text: "Fibonacci ( 0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 )",
           value: "fibonacci",
         },
         {
-          text: "Powers of 2 ( 0, 1, 2, 4, 8, 16, 32, 64, ? )",
+          text: "Powers of 2 ( 0, 1, 2, 4, 8, 16, 32, 64 )",
           value: "powers of 2",
         },
       ],
