@@ -5,4 +5,9 @@ describe("Test home page", () => {
     cy.visit("/");
     cy.contains("div", "Planning cards for agile development teams");
   });
+
+  it("has call to actions", () => {
+    cy.get("button").contains(" Buy me coffee ");
+    cy.get("button").contains(" Start new game ");
+  });
 });
