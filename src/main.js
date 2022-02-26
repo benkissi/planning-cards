@@ -17,12 +17,12 @@ Vue.component('downloadCsv', JsonCSV)
 Vue.use(
   new VueSocketIO({
     debug: true,
-    connection: SocketIO("http://localhost:4001/"),
+    connection: SocketIO(process.env.VUE_APP_BASE_URL),
     vuex: {
       store,
       actionPrefix: "socket_",
       // mutationPrefix: "socket_",
-    }
+    },
   })
 );
 
