@@ -18,7 +18,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Create.vue"),
+      import("../views/Create.vue"),
   },
   {
     path: "/game",
@@ -27,7 +27,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Game.vue"),
+      import("../views/Game.vue"),
     beforeEnter: (to, from, next) => {
       if (store.state.user && store.state.game) {
         next();
@@ -41,7 +41,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Join.vue"),
+      import("../views/Join.vue"),
   },
 ];
 
