@@ -42,7 +42,7 @@ export default {
   computed: {
     total() {
       return this.tasks.reduce((acc, curr) => {
-        return Number(acc) + Number(curr.score);
+        return Number(acc) + Number(curr?.score || 0);
       }, 0);
     },
 
